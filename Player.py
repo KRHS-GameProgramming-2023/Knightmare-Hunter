@@ -1,13 +1,13 @@
 from Main import *
 
 
-class PlayerBall(Ball):
+class Player(Knight):
     def __init__(self, maxSpeed=4, startPos=[0,0]):
-        Ball.__init__(self, [0,0], startPos)
-        self.image = pygame.image.load("playerBall.png")
+        Knight.__init__(self, [0,0], startPos)
+        self.image = pygame.image.load("player.png")
         self.rect = self.image.get_rect()
         self.maxSpeed = maxSpeed
-        self.kind = "player"
+        self.kind = "Player"
         
     def goKey(self, direction):
         if direction == "left":
