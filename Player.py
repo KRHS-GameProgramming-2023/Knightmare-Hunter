@@ -41,6 +41,17 @@ class Player():
         self.speed = [self.speedx,self.speedy]
         self.rect = self.rect.move(self.speed)
         
+    def wallCollide(self, size):
+        if self.rect.bottom > size[1]:
+            self.speedy = -self.speedy
+        if self.rect.top < 0:
+            self.speedy = -self.speedy
+        
+        if self.rect.right > size[0]:
+            self.speedx = -self.speedx
+        if self.rect.left < 0:
+            self.speedx = -self.speedx
+        
         
     def dist(self,other):
         x1 = self.rect.centerx
