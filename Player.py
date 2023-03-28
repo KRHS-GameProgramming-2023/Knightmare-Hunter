@@ -1,11 +1,17 @@
-from Main import *
+import pygame, sys, math
 
 
-class Player(Knight):
+
+class Player():
     def __init__(self, maxSpeed=4, startPos=[0,0]):
-        Knight.__init__(self, [0,0], startPos)
-        self.image = pygame.image.load("player.png")
-        self.rect = self.image.get_rect()
+        self.image = pygame.image.load("Player/Images/Playerwithshortsword.png")
+        self.rect = self.image.get_rect(center = startPos)
+        
+        self.speedx = 0
+        self.speedy = 0
+        self.radius = self.rect.height/2
+        self.speed = [self.speedx,self.speedy]
+        
         self.maxSpeed = maxSpeed
         self.kind = "Player"
         
@@ -30,3 +36,15 @@ class Player(Knight):
     def update(self, size):
         self.move()
         self.wallCollide(size)
+        
+    def move(self):
+        self.speed = [self.speedx,self.speedy]
+        self.rect = self.rect.move(self.speed)
+        
+        
+    def dist(self,other):
+        x1 = self.rect.centerx
+        y1 = self.rect.centery
+        x2 = other.rect.centerx
+        y2 = other.rect.centery
+        return math.sqrt((x2-x1)**2+(y2-y1)**2)

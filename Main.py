@@ -15,6 +15,8 @@ Clock = pygame.time.Clock();
 size = [900, 700]
 screen = pygame. display.set_mode(size)
 
+player = Player(5,[450,350])
+
 view = "title"
 while True:
     if view == "title":
@@ -46,5 +48,6 @@ while True:
 
         screen.fill((127, 127, 127))
         screen.blit(bgImage, bgRect)
+        screen.blit(player.image, player.rect)
         pygame.display.flip()
         Clock.tick(60)
