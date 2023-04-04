@@ -63,7 +63,11 @@ while True:
                     player.goKey("sup")
                 elif event.key == pygame.K_s or event.key == pygame.K_DOWN:
                     player.goKey("sdown")
-        
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1: #left click
+                    player.attack("light")
+                elif event.button == 3: #right click
+                    player.attack("heavy")
              
         player.update(size)
 
