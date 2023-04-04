@@ -39,6 +39,8 @@ while True:
     if view == "floor 1":
         bgImage = pygame.image.load("Backgrounds/floor1.png")
         bgRect = bgImage.get_rect()
+        eastWallImage = pygame.image.load("Backgrounds/eastwall.png")
+        eastWallRect = eastWallImage.get_rect(center = [900,0])
     while view == "floor 1":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -67,6 +69,7 @@ while True:
 
         screen.fill((127, 127, 127))
         screen.blit(bgImage, bgRect)
+        screen.blit(eastWallImage, eastWallRect)
         screen.blit(player.image, player.rect)
         pygame.display.flip()
         Clock.tick(60)
