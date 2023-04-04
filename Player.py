@@ -51,7 +51,10 @@ class Player():
             self.speedx = -self.speedx
         if self.rect.left < 0:
             self.speedx = -self.speedx
-        
+    
+    def attack(self, power):
+        print(power + " attack") 
+    
         
     def dist(self,other):
         x1 = self.rect.centerx
