@@ -39,6 +39,8 @@ while True:
     if view == "floor 1":
         bgImage = pygame.image.load("Backgrounds/floor1.png")
         bgRect = bgImage.get_rect()
+        castleWallwithNorthDoorImage = pygame.image.load("Backgrounds/castlewallwithnorthdoor.png")
+        castleWallwithNorthDoorRect = castleWallwithNorthDoorImage.get_rect(center = [450,100])
     while view == "floor 1":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -61,12 +63,17 @@ while True:
                     player.goKey("sup")
                 elif event.key == pygame.K_s or event.key == pygame.K_DOWN:
                     player.goKey("sdown")
-        
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1: #left click
+                    player.attack("light")
+                elif event.button == 3: #right click
+                    player.attack("heavy")
              
         player.update(size)
 
         screen.fill((127, 127, 127))
         screen.blit(bgImage, bgRect)
+        screen.blit(castleWallwithNorthDoorImage, castleWallwithNorthDoorRect)
         screen.blit(player.image, player.rect)
         pygame.display.flip()
         Clock.tick(60)
