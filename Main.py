@@ -41,7 +41,7 @@ while True:
     if view == "floor 1":
         bgImage = pygame.image.load("Backgrounds/floor1.png")
         bgRect = bgImage.get_rect()
-        castleWallwithNorthDoorImage = pygame.image.load("Backgrounds/floor1.1.png")
+        castleWallwithNorthDoorImage = pygame.image.load("Backgrounds/castlewallwithnorthdoor.png")
         castleWallwithNorthDoorRect = castleWallwithNorthDoorImage.get_rect(center = [450,100])
     while view == "floor 1":
         for event in pygame.event.get():
