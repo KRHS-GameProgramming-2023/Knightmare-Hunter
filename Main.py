@@ -71,6 +71,7 @@ while True:
                     player.attack("light")
                 elif event.button == 3: #right click
                     player.attack("heavy")
+        
              
         player.update(size)
 
