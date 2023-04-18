@@ -1,7 +1,6 @@
 import pygame, sys, math
 
 
-
 class Player():
     def __init__(self, maxSpeed=4, startPos=[0,0]):
         self.image = pygame.image.load("Player/Images/Playerwithshortsword.png")
@@ -32,6 +31,51 @@ class Player():
             self.speedy = 0
         elif direction == "sdown":
             self.speedy = 0
+            
+    def wallCollide(self, size):
+        width = size[0]
+        height = size[1]
+        d = False
+        if not self.didbounceY: 
+            if self.rect.bottom > height:
+                d = "bottom"
+            if self.rect.right > width:
+                d = "right"
+        if not self.didbounceX:
+            if self.rect.top < 0:
+                d = "top"
+            if self.rect.left < 0:
+                d = "left"
+        if d: print("IN FUNCTION", d)
+        return d
+        
+    def wallTileCollide(self, other):
+        if self.rect.right > other.rect.left:
+            if self.rect.left < other.rect.right:
+                if self.rect.bottom > other.rect.top:
+                    if self.rect.top < other.rect.bottom:
+                        if not self.didbounceX:
+                            self.speedx = -self.speedx
+                            self.didbounceX = True
+                            self.move()
+                            self.speedx = 0
+                        if not self.didbounceY:
+                            self.speedy = -self.speedy
+                            self.didbounceY = True
+                            self.move()
+                            self.speedy = 0
+                        return True
+        return False
+        
+    def ballCollide(self, other):
+        if self != other:
+            if self.rect.right > other.rect.left:
+                if self.rect.left < other.rect.right:
+                    if self.rect.bottom > other.rect.top:
+                        if self.rect.top < other.rect.bottom:
+                            if self.getDist(other) < self.rad + other.rad:
+                                return True
+        return False
             
     def update(self, size):
         self.move()
