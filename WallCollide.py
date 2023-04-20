@@ -1,4 +1,3 @@
-from Main import *
 
     def wallCollide(self, size):
         width = size[0]
