@@ -3,7 +3,14 @@ import pygame, sys, math
 
 class Player():
     def __init__(self, maxSpeed=4, startPos=[0,0]):
-        self.image = pygame.image.load("Player/Images/Playerwithshortsword.png")
+        self.imageUp = [pygame.image.load("Player/Images/Playerwithshortsword-up.png")]
+        self.imageDown = [pygame.image.load("Player/Images/Playerwithshortsword-down.png")]
+        self.imageRight = [pygame.image.load("Player/Images/Playerwithshortsword-right.png")]
+        self.imageLeft = [pygame.image.load("Player/Images/Playerwithshortsword-left.png")]
+        self.images = self.imagesUp
+        self.frame = 0
+        self.frameMax = len(self.images) -1
+        self.image = self.images[self.frame]
         self.rect = self.image.get_rect(center = startPos)
         
         self.speedx = 0
