@@ -7,7 +7,6 @@ from Ghoul import *
 from Vampire import *
 from Object import *
 from Boss import *
-from WallCollide import *
 from LevelLoader import *
 
 
