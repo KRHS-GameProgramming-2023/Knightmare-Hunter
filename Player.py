@@ -105,7 +105,7 @@ class Player():
                         return True
         return False
         
-    def ballCollide(self, other):
+    def playerCollide(self, other):
         if self != other:
             if self.rect.right > other.rect.left:
                 if self.rect.left < other.rect.right:
