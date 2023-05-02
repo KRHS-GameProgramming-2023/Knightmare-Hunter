@@ -3,10 +3,10 @@ import pygame, sys, math
 
 class Player():
     def __init__(self, maxSpeed=4, startPos=[0,0]):
-        self.imageUp = [pygame.image.load("Player/Images/Playerwithshortsword-Up.png")]
-        self.imageDown = [pygame.image.load("Player/Images/Playerwithshortsword-Down.png")]
-        self.imageRight = [pygame.image.load("Player/Images/Playerwithshortsword-Right.png")]
-        self.imageLeft = [pygame.image.load("Player/Images/Playerwithshortsword-Left.png")]
+        self.imagesUp = [pygame.image.load("Player/Images/Playerwithshortsword-Up.png")]
+        self.imagesDown = [pygame.image.load("Player/Images/Playerwithshortsword-Down.png")]
+        self.imagesRight = [pygame.image.load("Player/Images/Playerwithshortsword-Right.png")]
+        self.imagesLeft = [pygame.image.load("Player/Images/Playerwithshortsword-Left.png")]
         self.images = self.imagesUp
         self.frame = 0
         self.frameMax = len(self.images) -1
