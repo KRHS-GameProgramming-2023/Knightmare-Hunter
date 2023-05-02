@@ -12,13 +12,26 @@ from LevelLoader import *
 
 
 pygame.init()
+if not pygame.font: print('Warning, fonts disabled')
 
 Clock = pygame.time.Clock();
 
 size = [900, 700]
 screen = pygame. display.set_mode(size)
 
+counter = 0;
 player = Player(5,[450,350])
+monsters [player]
+score = Hud("Score: ", [0, 0])
+timer = Hud("Time: ", [900-200, 0])
+
+level = 1
+tiles = load level("levels/"+str(level)+".lvl")
+walls = tiles[0]
+spawners = tiles[1]
+
+kills = 0
+time = 0
 
 view = "title"
 while True:
