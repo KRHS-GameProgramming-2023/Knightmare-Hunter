@@ -1,5 +1,5 @@
 import pygame, sys, math, random
-# ~ from Hud import *
+#from Hud import *
 from Player import *
 from Wall import *
 from Troll import *
@@ -21,14 +21,14 @@ screen = pygame. display.set_mode(size)
 
 counter = 0;
 player = Player(5,[450,350])
-monsters [player]
-score = Hud("Score: ", [0, 0])
-timer = Hud("Time: ", [900-200, 0])
+monsters = [player]
+#score = Hud("Score: ", [0, 0])
+#timer = Hud("Time: ", [900-200, 0])
 
 level = 1
-tiles = load level("levels/"+str(level)+".lvl")
-walls = tiles[0]
-spawners = tiles[1]
+#tiles = loadLevel("levels/"+str(level)+".lvl")
+#walls = tiles[0]
+#spawners = tiles[1]
 
 kills = 0
 time = 0
