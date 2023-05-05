@@ -1,5 +1,5 @@
 import pygame, sys, math, random
-#from Hud import *
+from Hud import *
 from Player import *
 from Wall import *
 from Troll import *
