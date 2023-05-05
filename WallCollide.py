@@ -1,3 +1,6 @@
+import pygame, sys, math
+from main import *
+
 
     def wallCollide(self, size):
         width = size[0]

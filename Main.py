@@ -84,6 +84,12 @@ while True:
                     player.attack("light")
                 elif event.button == 3: #right click
                     player.attack("heavy")
+                    
+        time += 1
+        counter += 1
+        if counter >= 10:
+            counter = 0;
+            monsters +=[Monster([
         
              
         player.update(size)
