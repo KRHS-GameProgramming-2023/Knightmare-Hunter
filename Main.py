@@ -89,7 +89,7 @@ while True:
         counter += 1
         if counter >= 10:
             counter = 0;
-            # ~ monsters +=[Monster([
+            monsters +=[Monster([random.randint(-7, 7), random.randint
         
              
         player.update(size)
