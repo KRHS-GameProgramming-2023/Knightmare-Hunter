@@ -89,7 +89,7 @@ while True:
         counter += 1
         if counter >= 10:
             counter = 0;
-            monsters +=[Monster([
+            # ~ monsters +=[Monster([
         
              
         player.update(size)
