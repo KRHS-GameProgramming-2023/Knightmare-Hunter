@@ -1,8 +1,9 @@
 import pygame, sys, math
+from Main import *
 from Wall import *
 # ~ from Spawner import *
 
-def loadLevel (lev):
+def loadFloor (lev):
     f = open(lev, 'r')
     lines = f.readlines()
     f.close()

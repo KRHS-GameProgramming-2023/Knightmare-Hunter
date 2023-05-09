@@ -7,7 +7,7 @@ from Ghoul import *
 from Vampire import *
 from Object import *
 from Boss import *
-from LevelLoader import *
+from FloorLoader import *
 # ~ from Spawner import *
 
 
@@ -27,11 +27,11 @@ h =100
 #timer = Hud("Time: ", [900-200, 0])
 
 level = 1
-#tiles = loadLevel("levels/"+str(level)+".lvl")
-#walls = tiles[0]
+tiles = loadLevel("levels/"+str(level)+"floor2")
+walls = tiles[0]
 #spawners = tiles[1]
 
-kills = 0
+health = 0
 time = 0
 
 view = "title"
@@ -45,7 +45,7 @@ while True:
                 sys.exit();
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
-                    view = "floor 1"
+                    view = "floor 2"
                     
 
         screen.fill((127, 127, 127))
@@ -53,12 +53,12 @@ while True:
         pygame.display.flip()
         Clock.tick(60)
         
-    if view == "floor 1":
-        bgImage = pygame.image.load("Backgrounds/floor1.png")
+    if view == "floor 2":
+        bgImage = pygame.image.load("Backgrounds/floor2.png")
         bgRect = bgImage.get_rect()
-        castleWallwithNorthDoorImage = pygame.image.load("Backgrounds/floor1.1.png")
+        castleWallwithNorthDoorImage = pygame.image.load("Backgrounds/floor2.png")
         castleWallwithNorthDoorRect = castleWallwithNorthDoorImage.get_rect(center = [450,100])
-    while view == "floor 1":
+    while view == "floor 2":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit();
@@ -86,12 +86,61 @@ while True:
                 elif event.button == 3: #right click
                     player.attack("heavy")
                     
-        time += 1
-        counter += 1
-
-        if counter >= 10:
+    time += 1
+    counter += 1
+    if counter >= 5:
             counter = 0;
-            # ~ monsters +=[Monster([random.randint(-7, 7), random.randint
+            monsters +=[Monster([random.randint(-3.5, 3.5), random.randint(-3.5, 3.5)],
+                [random.randint(50, 350), random.randint(50, 250)])
+            ]
+            for monster in monsters:
+                if monsters[-1].monsterCollide(monster):
+                    monsters.remove(monsters[-1])
+                    break
+        
+    for monster in monsters:
+        monster.update(size)
+        
+    timer.update(int(time/60))
+    health.update(health)
+    
+    for hittingMonster in monsters:
+        for hitMonster in monsters:
+            if hittingMonster.monsterCollide(hitMonster):
+                if hittingMonster.kind == "player":
+                    monsters.remove(hitMonster)
+                    health += 1
+        for wall in walls:
+            hittingMonster.wallTileCollide(wall)
+            
+    d = player.wallCollide(size)
+    print("IN MAIN",player.wallCollide(size))
+    if d:
+        print("????????????")
+        if level == 2 and d == "right":
+            level = 3
+            tiles = loadLevel("levels/"+str(level)+"floor2")
+            walls = tiles[0]
+            spawners = tiles[1]
+            player.rect.left = 1
+        elif level == 3 and d == "left":
+            level = 2
+            tiles = loadLevel("levels/"+str(level)+"floor3")
+            walls = tiles[0]
+            spawners = tiles[1]
+            player.rect.right = size[0]-1
+        elif level == 3 and d == "right":
+            level = 4
+            tiles = loadLevel("levels/"+str(level)+"floor3")
+            walls = tiles[0]
+            spawners = tiles[1]
+            player.rect.left = 1
+        elif level == 4 and d == "left":
+            level = 3
+            tiles = loadLevel("levels/"+str(level)+"floor4")
+            walls = tiles[0]
+            spawners = tiles[1]
+            player.rect.right = 1
         
         h-=1
         if h < 0:
