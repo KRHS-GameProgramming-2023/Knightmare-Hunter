@@ -1,5 +1,5 @@
 import pygame, sys, math, random
-from Hud import *
+from Health import *
 from Player import *
 from Wall import *
 from Troll import *
@@ -22,7 +22,8 @@ screen = pygame. display.set_mode(size)
 counter = 0;
 player = Player(5,[450,350])
 monsters = [player]
-#score = Hud("Score: ", [0, 0])
+health = Health([0, 0])
+h =100
 #timer = Hud("Time: ", [900-200, 0])
 
 level = 1
@@ -87,16 +88,22 @@ while True:
                     
         time += 1
         counter += 1
+
         if counter >= 10:
             counter = 0;
-            # ~ monsters +=[Monster([
+            # ~ monsters +=[Monster([random.randint(-7, 7), random.randint
         
+        h-=1
+        if h < 0:
+            h = 100
              
         player.update(size)
+        health.update(h)
 
         screen.fill((127, 127, 127))
         screen.blit(bgImage, bgRect)
         screen.blit(castleWallwithNorthDoorImage, castleWallwithNorthDoorRect)
         screen.blit(player.image, player.rect)
+        screen.blit(health.image, health.rect)
         pygame.display.flip()
         Clock.tick(60)
