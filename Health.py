@@ -1,21 +1,21 @@
 import pygame, sys, math
 
-class Hud():
+class Health():
     def __init__(self, pos=[50,50]):
-        self.images = [pygame.image.load("Player/images/Healthbarempty.png"),
-                       pygame.image.load("Player/images/Healthbar25%.png"),
-                       pygame.image.load("Player/images/Healthbar50%.png"),
-                       pygame.image.load("Player/images/Healthbar75%.png"),
-                       pygame.image.load("Player/images/Healthbar100%.png")]
+        self.images = [pygame.image.load("Player/Images/Heathbarempty.png"),
+                       pygame.image.load("Player/Images/Healthbar25%.png"),
+                       pygame.image.load("Player/Images/Healthbar50%.png"),
+                       pygame.image.load("Player/Images/Healthbar75%.png"),
+                       pygame.image.load("Player/Images/Healthbar100%.png")]
         self.percent = 100;
         self.frame = self.calcFrame()
-        self.image = self.images(self.frame)
-        self.rect = slef.image.get_rect(center = startPos)
+        self.image = self.images[self.frame]
+        self.rect = self.image.get_rect(topleft = pos)
         
     def update(self, health):
         self.percent = health
         self.frame = self.calcFrame()
-        self.image = self.images(self.frame)
+        self.image = self.images[self.frame]
         
     def calcFrame(self):
         if self.percent > 87:
