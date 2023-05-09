@@ -7,7 +7,7 @@ class Player():
         self.imagesDown = [pygame.image.load("Player/Images/Playerwithshortsword-Down.png")]
         self.imagesRight = [pygame.image.load("Player/Images/Playerwithshortsword-Right.png")]
         self.imagesLeft = [pygame.image.load("Player/Images/Playerwithshortsword-Left.png")]
-        self.images = self.imagesDown
+        self.images = self.imagesUp
         self.frame = 0
         self.frameMax = len(self.images) -1
         self.image = self.images[self.frame]
