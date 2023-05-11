@@ -7,6 +7,8 @@ class Player():
         self.imagesDown = [pygame.image.load("Player/Images/Playerwithshortsword-Down.png")]
         self.imagesRight = [pygame.image.load("Player/Images/Playerwithshortsword-Right.png")]
         self.imagesLeft = [pygame.image.load("Player/Images/Playerwithshortsword-Left.png")]
+        
+        self.imagesUpShortsword=[pygame.image.load("Player/Images/Standardswingingshortsword-Up.png")]
         self.images = self.imagesUp
         self.frame = 0
         self.frameMax = len(self.images) -1
@@ -20,10 +22,17 @@ class Player():
         
         self.maxSpeed = maxSpeed
         self.kind = "Player"
+        self.direction = 'down'
+        self.weapon = 'Shortsword'
         
         self.hp = 100
         
     def goKey(self, direction):
+        if direction[0] == 's':
+            self.direction = direction[1:]
+        else:
+            self.direction = direction
+            
         if direction == "left":
             self.speedx = -self.maxSpeed
             self.images = self.imagesLeft
@@ -158,6 +167,12 @@ class Player():
     
     def attack(self, power):
         print(power + " attack") 
+        if self.direction == 'up':
+            if self.weapon == 'Shortsword':
+                self.images = self.imagesUpShortsword
+        
+                
+        self.image = self.images[self.frame]
     
         
     def dist(self,other):
