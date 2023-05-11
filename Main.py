@@ -2,11 +2,7 @@ import pygame, sys, math, random
 from Health import *
 from Player import *
 from Wall import *
-from Troll import *
-from Ghoul import *
-from Vampire import *
 from Object import *
-from Boss import *
 from FloorLoader import *
 # ~ from Spawner import *
 
