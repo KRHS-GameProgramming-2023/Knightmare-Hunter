@@ -9,6 +9,7 @@ class Player():
         self.imagesLeft = [pygame.image.load("Player/Images/Playerwithshortsword-Left.png")]
         
         self.imagesUpShortsword=[pygame.image.load("Player/Images/Standardswingingshortsword-Up.png")]
+        self.imagesDownShortsword = [pygame.image.load("Player/Images/Standardswingingshortsword-Down.png")]
         self.images = self.imagesUp
         self.frame = 0
         self.frameMax = len(self.images) -1
@@ -170,6 +171,9 @@ class Player():
         if self.direction == 'up':
             if self.weapon == 'Shortsword':
                 self.images = self.imagesUpShortsword
+        if self.direction == 'down':
+            if self.weapon == 'Shortsword':
+                self.images = self.imagesDownShortsword
         
                 
         self.image = self.images[self.frame]
