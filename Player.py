@@ -26,12 +26,16 @@ class Player():
     def goKey(self, direction):
         if direction == "left":
             self.speedx = -self.maxSpeed
+            self.images = self.imagesLeft
         elif direction == "right":
             self.speedx = self.maxSpeed
+            self.images = self.imagesRight
         elif direction == "up":
             self.speedy = -self.maxSpeed
+            self.images = self.imagesUp
         elif direction == "down":
             self.speedy = self.maxSpeed
+            self.images = self.imagesDown
         if direction == "sleft":
             self.speedx = 0
         elif direction == "sright":
@@ -40,6 +44,7 @@ class Player():
             self.speedy = 0
         elif direction == "sdown":
             self.speedy = 0
+        self.image = self.images[self.frame]
             
     def wallCollide(self, size):
         width = size[0]
