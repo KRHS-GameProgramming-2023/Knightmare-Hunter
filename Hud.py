@@ -10,7 +10,7 @@ class Hud():
         self.percent = 100;
         self.frame = self.calcFrame()
         self.image = self.images(self.frame)
-        self.rect = slef.image.get_rect(center = startPos)
+        self.rect = self.image.get_rect(center = startPos)
         
     def update(self, health):
         self.percent = health
