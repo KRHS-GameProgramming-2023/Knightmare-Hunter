@@ -21,6 +21,8 @@ class Player():
         self.maxSpeed = maxSpeed
         self.kind = "Player"
         
+        self.hp = 100
+        
     def goKey(self, direction):
         if direction == "left":
             self.speedx = -self.maxSpeed
@@ -73,6 +75,7 @@ class Player():
             if self.rect.left < 0:
                 self.speedx = -self.speedx
                 self.didbounceX = True
+    
     def playerCollide(self, other):
         if self != other:
             if self.rect.right > other.rect.left:
@@ -86,6 +89,20 @@ class Player():
                                     self.speedy = -self.speedy
                                 return True
         return False  
+        
+    def monsterCollide(self, other):
+        if self != other:
+            if self.rect.right > other.rect.left:
+                if self.rect.left < other.rect.right:
+                    if self.rect.bottom > other.rect.top:
+                        if self.rect.top < other.rect.bottom:
+                            if self.getDist (other) < self.rad + other.rad:
+                                if not self.didbounceX:
+                                    self.speedx = -self.speedx
+                                if not self.didbounceY:
+                                    self.speedy = -self.speedy
+                                return True
+        return False 
     
     def wallTileCollide(self, other):
         if self.rect.right > other.rect.left:

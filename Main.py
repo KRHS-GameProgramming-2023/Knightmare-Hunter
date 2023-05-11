@@ -27,11 +27,10 @@ h =100
 #timer = Hud("Time: ", [900-200, 0])
 
 level = 1
-tiles = loadLevel("levels/"+str(level)+"floor2")
-walls = tiles[0]
+#tiles = loadFloor("levels/"+str(level)+"floor2")
+#walls = tiles[0]
 #spawners = tiles[1]
 
-health = 0
 time = 0
 
 view = "title"
@@ -86,73 +85,69 @@ while True:
                 elif event.button == 3: #right click
                     player.attack("heavy")
                     
-    time += 1
-    counter += 1
-    if counter >= 5:
-            counter = 0;
-            monsters +=[Monster([random.randint(-3.5, 3.5), random.randint(-3.5, 3.5)],
-                [random.randint(50, 350), random.randint(50, 250)])
-            ]
-            for monster in monsters:
-                if monsters[-1].monsterCollide(monster):
-                    monsters.remove(monsters[-1])
-                    break
-        
-    for monster in monsters:
-        monster.update(size)
-        
-    timer.update(int(time/60))
-    health.update(health)
-    
-    for hittingMonster in monsters:
-        for hitMonster in monsters:
-            if hittingMonster.monsterCollide(hitMonster):
-                if hittingMonster.kind == "player":
-                    monsters.remove(hitMonster)
-                    health += 1
-        for wall in walls:
-            hittingMonster.wallTileCollide(wall)
+        time += 1
+        counter += 1
+        if counter >= 5:
+                counter = 0;
+                # ~ monsters +=[Monster([random.randint(-3.5, 3.5), random.randint(-3.5, 3.5)],
+                    # ~ [random.randint(50, 350), random.randint(50, 250)])
+                # ~ ]
+                # ~ for monster in monsters:
+                    # ~ if monsters[-1].monsterCollide(monster):
+                        # ~ monsters.remove(monsters[-1])
+                        # ~ break
             
-    d = player.wallCollide(size)
-    print("IN MAIN",player.wallCollide(size))
-    if d:
-        print("????????????")
-        if level == 2 and d == "right":
-            level = 3
-            tiles = loadLevel("levels/"+str(level)+"floor2")
-            walls = tiles[0]
-            spawners = tiles[1]
-            player.rect.left = 1
-        elif level == 3 and d == "left":
-            level = 2
-            tiles = loadLevel("levels/"+str(level)+"floor3")
-            walls = tiles[0]
-            spawners = tiles[1]
-            player.rect.right = size[0]-1
-        elif level == 3 and d == "right":
-            level = 4
-            tiles = loadLevel("levels/"+str(level)+"floor3")
-            walls = tiles[0]
-            spawners = tiles[1]
-            player.rect.left = 1
-        elif level == 4 and d == "left":
-            level = 3
-            tiles = loadLevel("levels/"+str(level)+"floor4")
-            walls = tiles[0]
-            spawners = tiles[1]
-            player.rect.right = 1
+        # ~ for monster in monsters:
+            # ~ monster.update(size)
+            
+        health.update(player.hp)
         
-        h-=1
-        if h < 0:
-            h = 100
-             
-        player.update(size)
-        health.update(h)
+        for hittingMonster in monsters:
+            for hitMonster in monsters:
+                if hittingMonster.monsterCollide(hitMonster):
+                    if hittingMonster.kind == "player":
+                        monsters.remove(hitMonster)
+                        health += 1
+            #for wall in walls:
+                #hittingMonster.wallTileCollide(wall)
+                
+        # ~ d = player.wallCollide(size)
+        # ~ print("IN MAIN",player.wallCollide(size))
+        # ~ if d:
+            # ~ print("????????????")
+            # ~ if level == 2 and d == "right":
+                # ~ level = 3
+                # ~ tiles = loadLevel("levels/"+str(level)+"floor2")
+                # ~ walls = tiles[0]
+                # ~ spawners = tiles[1]
+                # ~ player.rect.left = 1
+            # ~ elif level == 3 and d == "left":
+                # ~ level = 2
+                # ~ tiles = loadLevel("levels/"+str(level)+"floor3")
+                # ~ walls = tiles[0]
+                # ~ spawners = tiles[1]
+                # ~ player.rect.right = size[0]-1
+            # ~ elif level == 3 and d == "right":
+                # ~ level = 4
+                # ~ tiles = loadLevel("levels/"+str(level)+"floor3")
+                # ~ walls = tiles[0]
+                # ~ spawners = tiles[1]
+                # ~ player.rect.left = 1
+            # ~ elif level == 4 and d == "left":
+                # ~ level = 3
+                # ~ tiles = loadLevel("levels/"+str(level)+"floor4")
+                # ~ walls = tiles[0]
+                # ~ spawners = tiles[1]
+                # ~ player.rect.right = 1
+            
+           
+                 
+            player.update(size)
 
-        screen.fill((127, 127, 127))
-        screen.blit(bgImage, bgRect)
-        screen.blit(castleWallwithNorthDoorImage, castleWallwithNorthDoorRect)
-        screen.blit(player.image, player.rect)
-        screen.blit(health.image, health.rect)
-        pygame.display.flip()
-        Clock.tick(60)
+            screen.fill((127, 127, 127))
+            screen.blit(bgImage, bgRect)
+            screen.blit(castleWallwithNorthDoorImage, castleWallwithNorthDoorRect)
+            screen.blit(player.image, player.rect)
+            screen.blit(health.image, health.rect)
+            pygame.display.flip()
+            Clock.tick(60)
