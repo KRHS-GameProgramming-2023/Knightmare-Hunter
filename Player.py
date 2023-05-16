@@ -10,8 +10,8 @@ class Player():
         
         self.imagesUpShortsword=[pygame.image.load("Player/Images/Standardswingingshortsword-Up.png")]
         self.imagesDownShortsword = [pygame.image.load("Player/Images/Standardswingingshortsword-Down.png")]
-        self.imagesRightShortsword = [pygame.image.load("Player/Images/Standardswingingshortsword-Right.png")]
-        self.imagesLeftShortsword = [pygame.image.load("Player/Images/Standardswingingshortsword-Left.png")]
+        self.imagesRightShortsword = [pygame.image.load("Player/Images/Playerswingingshortsword-Right.png")]
+        self.imagesLeftShortsword = [pygame.image.load("Player/Images/Playerswingingshortsword-Left.png")]
         self.images = self.imagesUp
         self.frame = 0
         self.frameMax = len(self.images) -1
@@ -176,10 +176,10 @@ class Player():
         if self.direction == 'down':
             if self.weapon == 'Shortsword':
                 self.images = self.imagesDownShortsword
-         if self.direction == 'right':
+        if self.direction == 'right':
             if self.weapon == 'Shortsword':
                 self.images = self.imagesRightShortsword
-         if self.direction == 'left':
+        if self.direction == 'left':
             if self.weapon == 'Shortsword':
                 self.images = self.imagesLeftShortsword
         
