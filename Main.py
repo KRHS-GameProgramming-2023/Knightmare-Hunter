@@ -4,6 +4,7 @@ from Player import *
 from Wall import *
 from Object import *
 from FloorLoader import *
+from Monster import *
 # ~ from Spawner import *
 
 
