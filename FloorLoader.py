@@ -85,3 +85,31 @@ from Monster import *
         # ~ lines = f.readLines()
         # ~ f.close()
         
+        # ~ for line in lines:
+            # ~ newLine = ""
+            # ~ for c in line:
+                # ~ if c != "\n":
+                    # ~ newLine += c
+            # ~ newLines += [newLine]
+        # ~ lines = newLines
+        
+        # ~ for y, line in enumerate(lines):
+            # ~ for x, c in  enumerate(line):
+                # ~ if c == "#":
+                    # ~ walls += [Object([x*size + offset, y*size + offset], "wall")]
+                # ~ if c == "@":
+                    # ~ walls += [Object([x*size + offset, y*size + offset], "door")]
+                # ~ if c == "-":
+                    # ~ doors += [Object([x*size + 2*offset, y*size + offset], "top")]
+                # ~ if c == "_":
+                    # ~ doors += [Object([x*size + 2*offset, y*size + offset], "bottom")]
+                # ~ if c == "|":
+                    # ~ doors += [Object([x*size + 2*offset, y*size + offset], "left")]
+                # ~ if c == "/":
+                    # ~ doors += [Object([x*size + 2*offset, y*size + 2*offset], "right")]
+                # ~ if c == "0":
+                    # ~ doors += [Object([x*size + 2*offset, y*size + 2*offset], "doorway1")]
+                # ~ if c == "o":
+                    # ~ doors += [Object([x*size + 2*offset, y*size + 2*offset], "doorway2")]
+                # ~ if c == "D" and enter == "def":
+                    
