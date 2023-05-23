@@ -112,4 +112,45 @@ from Monster import *
                 # ~ if c == "o":
                     # ~ doors += [Object([x*size + 2*offset, y*size + 2*offset], "doorway2")]
                 # ~ if c == "D" and enter == "def":
+                    # ~ playerLoc = [x*size + offset, y*size + offset]
+                # ~ elif c == "%" and (enter == "bottom" or enter == "tutorialExit"):
+                    # ~ playerLoc = [x*size + 2*offset, y*size + offset]
+                # ~ elif c == "&" and (enter == "top" or enter == "tutorialEntrance"):
+                    # ~ playerLoc = [x*size + 2*offset, y*size + offset]
+                # ~ elif c == "(" and (enter == "right" ot enter == "portal1"):
+                    # ~ playerLoc = [x*size + offset, y*size + 2*offset]
+                # ~ elif c == ")" and (enter == "left" or enter == "portal2"):
+                    # ~ playerLoc = [x*size + offset, y*size + 2*offset]
+                
+        # ~ if os.path.isfile("Rooms/Sav/" + user + "/" + str(coord[1]) + str(coord[0]) + ".sav"):
+            # ~ direct2 = "Rooms/Sav/" + user + "/" + str(coord[1]) + str(coord[0]) + ".sav"
+            # ~ g = open(direct2, 'r')
+            # ~ lines2 = g.readlines()
+            # ~ g.close()
+            
+            
+            # ~ for line in lines2:
+                # ~ newLine2 = ""
+                # ~ for c in line:
+                    # ~ if c != "\n":
+                        # ~ newLine2 += c
+                # ~ newLines2 += [newLine2]
+            # ~ lines2 = newLines2
+            
+            # ~ for y, line in enumerate(line2):
+                # ~ for x, c in enumerate(line):
+                    # ~ if c == "!":
+                        # ~ items += [Item([x*size + offset, y*size + offset], "shortSword", '!')]
+                    # ~ if c == "*":
+                        # ~ items += [Item([x*size + offset, y*size + offset], "FuryoftheEmperor", '*')]
+                    # ~ if c == "~":
+                        # ~ items += [Item([x*size + offset, y*size + offset], "battleAxe", '~')]
+                    # ~ if c == ";":
+                        # ~ items += [Item([x*size + offset, y*size + offset], "HealthPotion", ';')]
+                    # ~ if c == ":":
+                        # ~ items += [Item([x*size + offset, y*size + offset], "staminaPotion", ':')]
+                    # ~ if c == "$":
+                        # ~ items += [Item([x*size + offset, y*size + offset], "Coin", '$')]
+                    # ~ if c == "1":
+                        # ~ enemies += [Enemy([x*size + offset, y*size + offset], "basic")]
                     
