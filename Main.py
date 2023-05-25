@@ -103,8 +103,10 @@ while True:
             for hitMonster in monsters:
                 if hittingMonster.monsterCollide(hitMonster):
                     if hittingMonster.kind == "player":
-                        monsters.remove(hitMonster)
-                        health += 1
+                        if hittingMonster.attacking:
+                            monsters.remove(hitMonster)
+                        else:
+                            player.hp -= 1
             #for wall in walls:
                 #hittingMonster.wallTileCollide(wall)
                 

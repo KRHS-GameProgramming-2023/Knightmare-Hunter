@@ -28,6 +28,10 @@ class Player():
         self.direction = 'down'
         self.weapon = 'Shortsword'
         
+        self.attacking = False
+        self.attackTime = 60*.5
+        self.attackTimer = 0;
+        
         self.hp = 100
         
     def goKey(self, direction):
@@ -152,6 +156,21 @@ class Player():
     def update(self, size):
         self.move()
         self.wallCollide(size)
+        if self.attacking:
+            if self.attackTimer < self.attackTime:
+                self.attackTimer += 1
+            else:
+                self.attackTimer = 0
+                self.attacking = False
+                if self.direction == 'up':
+                    self.images = self.imagesUp
+                if self.direction == 'down':
+                    self.images = self.imagesDown
+                if self.direction == 'right':
+                    self.images = self.imagesRight
+                if self.direction == 'left':
+                    self.images = self.imagesLeft
+                self.image = self.images[self.frame]
         
     def move(self):
         self.speed = [self.speedx,self.speedy]
@@ -170,6 +189,7 @@ class Player():
     
     def attack(self, power):
         print(power + " attack") 
+        self.attacking = True
         if self.direction == 'up':
             if self.weapon == 'Shortsword':
                 self.images = self.imagesUpShortsword
