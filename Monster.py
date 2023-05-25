@@ -1,9 +1,9 @@
 import pygame, sys, math
-# from Main import *
-# from Troll import *
-# from Ghoul import *
-# from Vampire import *
-# from Boss import *
+# ~ from Main import *
+# ~ from Troll import *
+# ~ from Ghoul import *
+# ~ from Vampire import *
+# ~ from Boss import *
 
 class Monster():
     def __init__(self, speed = [0, 0], startPos=[0, 0]):

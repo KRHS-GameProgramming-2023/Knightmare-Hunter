@@ -1,5 +1,5 @@
 import pygame, sys, math
-from main import *
+from Main import *
 
 
     def wallCollide(self, size):
