@@ -85,17 +85,17 @@ while True:
         time += 1
         counter += 1
         if counter >= 5:
-                counter = 0;
-                # ~ monsters +=[Monster([random.randint(-3.5, 3.5), random.randint(-3.5, 3.5)],
-                    # ~ [random.randint(50, 350), random.randint(50, 250)])
-                # ~ ]
-                # ~ for monster in monsters:
-                    # ~ if monsters[-1].monsterCollide(monster):
-                        # ~ monsters.remove(monsters[-1])
-                        # ~ break
+            counter = 0;
+            monsters +=[Monster([random.randint(-3, 3), random.randint(-3, 3)],
+                [random.randint(50, 350), random.randint(50, 250)])
+            ]
+            for monster in monsters:
+                if monsters[-1].monsterCollide(monster):
+                    monsters.remove(monsters[-1])
+                    break
             
-        # ~ for monster in monsters:
-            # ~ monster.update(size)
+        for monster in monsters:
+            monster.update(size)
             
         health.update(player.hp)
         
@@ -103,10 +103,8 @@ while True:
             for hitMonster in monsters:
                 if hittingMonster.monsterCollide(hitMonster):
                     if hittingMonster.kind == "player":
-                        if hittingMonster.attacking:
-                            monsters.remove(hitMonster)
-                        else:
-                            player.hp -= 1
+                        monsters.remove(hitMonster)
+                        health += 1
             #for wall in walls:
                 #hittingMonster.wallTileCollide(wall)
                 
@@ -146,7 +144,8 @@ while True:
             screen.fill((127, 127, 127))
             screen.blit(bgImage, bgRect)
             screen.blit(castleWallwithNorthDoorImage, castleWallwithNorthDoorRect)
-            screen.blit(player.image, player.rect)
+            for monster in monsters:
+                screen.blit(monster.image,monster.rect)
             screen.blit(health.image, health.rect)
             pygame.display.flip()
             Clock.tick(60)
