@@ -2,8 +2,7 @@ import pygame, sys, math, random
 from Health import *
 from Player import *
 from Wall import *
-from Object import *
-from FloorLoader import *
+# ~ from Object import *
 from Monster import *
 # ~ from Spawner import *
 
