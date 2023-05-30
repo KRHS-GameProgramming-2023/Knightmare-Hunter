@@ -85,7 +85,7 @@ while True:
         counter += 1
         if counter >= 5:
             counter = 0;
-            monsters +=[monster([random.randint(-3, 3), random.randint(-3, 3)],
+            monsters +=[Monster([random.randint(-3, 3),random.randint(-3, 3)],
                 [random.randint(50, 350), random.randint(50, 250)])
             ]
             for monster in monsters:
