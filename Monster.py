@@ -53,7 +53,7 @@ class Monster():
             if self.rect.left < 0:
                 self.speedx = -self.speedx
                 self.didbounceX = True
-    def moCollide(self, other):
+    def monsterCollide(self, other):
         if self != other:
             if self.rect.right > other.rect.left:
                 if self.rect.left < other.rect.right:

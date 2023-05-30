@@ -20,7 +20,7 @@ class Player():
         
         self.speedx = 0
         self.speedy = 0
-        self.radius = self.rect.height/2
+        self.rad = self.rect.height/2
         self.speed = [self.speedx,self.speedy]
         
         self.maxSpeed = maxSpeed

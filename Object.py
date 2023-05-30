@@ -16,3 +16,18 @@ class Player():
         self.frameMax = len(self.images) -1
         self.image = self.images[self.frame]
         self.rect = self.image.get_rect(center = startPos)
+        
+class Monster():
+    def __init__(self, speed = [0, 0], startPos=[0, 0]):
+        self.images = [pygame.image.load("Boss/Images/Troll.png"),
+                      pygame.image.load("Zombie/zombie.png")]
+        self.frame = 0
+        self.frameMax = len(self.images) -1
+        self.image = self.images[self.frame]
+        self.rect = self.image.get_rect()
+        self.speedx = speed[0]
+        self.speedy = speed[1]
+        self.speed = [self.speedx, self.speedy]
+        self.rad = (self.rect.height/2 + self.rect.width/2)/2
+        
+        self.rect = self.rect.move(startPos)
