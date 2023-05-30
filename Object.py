@@ -31,3 +31,6 @@ class Monster():
         self.rad = (self.rect.height/2 + self.rect.width/2)/2
         
         self.rect = self.rect.move(startPos)
+         
+        self.didbounceX = False
+        self.didbounceY = False
