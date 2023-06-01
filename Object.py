@@ -34,6 +34,3 @@ class Monster():
          
         self.didbounceX = False
         self.didbounceY = False
-
-# ~ class FloorLoader():
-    # ~ def __init__(self, 

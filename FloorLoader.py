@@ -1,6 +1,5 @@
 import pygame, sys, math, os, pickle
 from Main import *
-# ~ from Object import *
 from Player import *
 from Monster import *
 
