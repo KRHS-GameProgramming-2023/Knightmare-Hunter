@@ -22,8 +22,8 @@ health = Health([0, 0])
 h =100
 score = Hud("Score: ",[0,0])
 #timer = Hud("Time: ", [900-200, 0])
-
-level = 1
+ 
+level = 1 
 #tiles = loadFloor("levels/"+str(level)+"floor2")
 #walls = tiles[0]
 #spawners = tiles[1]
