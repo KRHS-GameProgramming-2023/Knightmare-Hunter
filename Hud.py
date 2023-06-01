@@ -13,22 +13,24 @@ class Hud():
         self.image = self.images(self.frame)
         self.rect = self.image.get_rect(center = startPos)
         
-    def __init__(self, baseText, startPos=[0,0]):
-        self.font = pygame.font.Font(None, 48)
-        self.baseText = baseText
-        self.image = self.font.render("Kills: 0", True, (0, 0, 0))
-        self.rect = self.image.get_rect(topright = startPos)
-        
     def update(self, health):
         self.percent = health
-        self.number = kills
+        self.number = Score
         self.frame = self.calcFrame()
         self.image = self.images(self.frame)
         
-    def update(self, kills):
-        text = self.baseText + str(kills)
+    def __init__(self, baseText, startPos=[0,0]):
+        # ~ self.images = [pygame.image.load("Player/images/Score.png")
+        # ~ ]
+        self.font = pygame.font.Font(None, 48)
+        self.baseText = baseText
+        self.image = self.font.render("Score: 0", True, (0, 0, 0))
+        self.rect = self.image.get_rect(topleft = startPos)
+        
+    def update(self, score):
+        text = self.baseText + str(score)
         self.image = self.font.render(text , True, (0, 0, 0))
-        self.rect = self.image.get_rect(topright = self.rect.topright)
+        self.rect = self.image.get_rect(topleft = self.rect.topleft)
         
         
     def calcFrame(self):

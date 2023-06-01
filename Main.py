@@ -20,7 +20,7 @@ player = Player(5,[450,350])
 monsters = [player]
 health = Health([0, 0])
 h =100
-kills = Hud("Kills: ",[0,0])
+score = Hud("Score: ",[0,0])
 #timer = Hud("Time: ", [900-200, 0])
 
 level = 1
@@ -28,6 +28,7 @@ level = 1
 #walls = tiles[0]
 #spawners = tiles[1]
 
+kills = 0
 time = 0
 
 view = "title"
