@@ -5,7 +5,7 @@ from Wall import *
 # ~ from Object import *
 from Monster import *
 # ~ from Spawner import *
-
+from Hud import *
 
 pygame.init()
 if not pygame.font: print('Warning, fonts disabled')
@@ -20,6 +20,7 @@ player = Player(5,[450,350])
 monsters = [player]
 health = Health([0, 0])
 h =100
+kills = Hud("Kills: ",[0,0])
 #timer = Hud("Time: ", [900-200, 0])
 
 level = 1
